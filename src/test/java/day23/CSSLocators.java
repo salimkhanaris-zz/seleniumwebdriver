@@ -12,6 +12,18 @@ public class CSSLocators {
         driver.get("https://automationbookstore.dev/");
         driver.manage().window().maximize();
         //Using tag and ID
-        driver.findElement(By.cssSelector("input#searchBar")).sendKeys("World");
+        //driver.findElement(By.cssSelector("input#searchBar")).sendKeys("World");
+
+        //Tag and class- tag.class
+
+        //driver.findElement(By.cssSelector("input.ui-focus")).sendKeys("World");
+
+        //tag and attribute
+        //driver.findElement(By.cssSelector("input[data-type=search]")).sendKeys("World");
+
+        //tag and class and attribute
+        driver.findElement(By.cssSelector("input.ui-focus[data-type=search]")).sendKeys("World");
+
+
     }
 }
