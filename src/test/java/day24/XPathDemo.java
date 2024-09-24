@@ -12,6 +12,10 @@ public class XPathDemo {
         driver.manage().window().maximize();
 
         //XPath with a single attribute
-        driver.findElement(By.xpath("//*[@id='search']/input")).sendKeys("Tablet");
+        //driver.findElement(By.xpath("//*[@id='search']/input")).sendKeys("Tablet");
+
+        //XPath with multiple attributes
+
+        driver.findElement(By.xpath(("//input[@name='search'][@placeholder='Search']"))).sendKeys("Tablet");
     }
 }
