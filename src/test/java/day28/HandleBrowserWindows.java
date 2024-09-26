@@ -17,7 +17,7 @@ public class HandleBrowserWindows {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));// Implicit wait
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         driver.manage().window().maximize();
-        System.out.println(driver.getTitle());
+        //System.out.println(driver.getTitle());
         driver.findElement(By.linkText("OrangeHRM, Inc")).click();
         Set<String> ids=driver.getWindowHandles();
 
@@ -29,7 +29,7 @@ public class HandleBrowserWindows {
         }
 
         //Approach 2
-        List<String> windowsids= new ArrayList<>(ids);
+        /*List<String> windowsids= new ArrayList<>(ids);
         String pid=windowsids.get(0);
         String cid= windowsids.get(1);
 
@@ -39,7 +39,18 @@ public class HandleBrowserWindows {
         System.out.println(driver.getCurrentUrl());
 
         //Switch to parent window
-        driver.switchTo().window(pid);
+        driver.switchTo().window(pid);*/
+
+        //Approach for switching
+        for (String wid: ids)
+        {
+            String title=driver.switchTo().window(wid).getTitle();
+            if (title.equals("OrangeHRM"))
+                System.out.println(driver.getCurrentUrl());
+            else
+                System.out.println(driver.getCurrentUrl());
+        }
+
 
 
         //driver.quit();
