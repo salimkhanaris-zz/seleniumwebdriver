@@ -47,10 +47,15 @@ public class Assignment {
         Set<String> ids=driver.getWindowHandles();
         System.out.println(ids);
         List<String> windowsids= new ArrayList<>(ids);
-        String id1= windowsids.get(3);
-        driver.switchTo().window(id1);
+        for (int i=0;i< windowsids.size();i++)
+        {
+            WebDriver title= driver.switchTo().window(windowsids.get(i));
+            System.out.println("Title of the webpage is: "+title.getTitle());
+        }
+        String tab= windowsids.get(3);
+        driver.switchTo().window(tab);
         driver.close();
-        System.out.println("Closed the windows with id: "+id1);
+        System.out.println("Closed the windows with id: "+tab);
 
         //driver.quit();
     }
