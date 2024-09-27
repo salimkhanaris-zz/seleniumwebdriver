@@ -26,7 +26,13 @@ public class SelectDropdown {
 
         //captuer the options from the dropdown
         List<WebElement> options=coption.getOptions();
-        System.out.println(options);
+        System.out.println("Number of options in the dropdown: "+options.size());
+
+        //Printing the options
+        for (WebElement opt: options)
+        {
+            System.out.println(opt.getText());
+        }
 
 
 
