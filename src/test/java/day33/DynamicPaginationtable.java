@@ -39,7 +39,7 @@ public class DynamicPaginationtable {
         int totalpages= Integer.parseInt(pagenumber.substring(pagenumber.indexOf("(")+1,pagenumber.indexOf("Pages")-1));
         System.out.println(totalpages);
 
-        for (int p=1; p<=5;p++)
+        for (int p=1; p<=totalpages;p++)
         {
             if (p>1)
             {
