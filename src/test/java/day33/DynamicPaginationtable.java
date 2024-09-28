@@ -62,14 +62,7 @@ public class DynamicPaginationtable {
 
         }
 
-
-
         Thread.sleep(2000);
-
-
-
-
-
         driver.quit();
 
 
