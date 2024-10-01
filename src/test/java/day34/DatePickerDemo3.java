@@ -19,19 +19,20 @@ public class DatePickerDemo3 {
 
             WebElement mt = driver.findElement(By.xpath("//select[@title='Change the month']"));
             Select mont= new Select(mt);
-            //mont.
+            mont.selectByVisibleText(month);
             WebElement yr= driver.findElement(By.xpath("//select[@title='Change the year']"));
             Select yea= new Select(yr);
+            yea.selectByVisibleText(year);
             if (mt.equals(month)&& yr.equals(year))
             {
                 break;
             }
-            driver.findElement(By.xpath("//span[@class='ui-icon ui-icon-circle-triangle-e']")).click();
+            //driver.findElement(By.xpath("//span[@class='ui-icon ui-icon-circle-triangle-e']")).click();
 
         }
         //Select the date
         //Method 1
-        List<WebElement> alldates=driver.findElements(By.xpath("//table[@class='ui-datepicker-calendar']//tbody//tr//td//a"));
+        /*List<WebElement> alldates=driver.findElements(By.xpath("//table//tr//td//a"));
         for (WebElement x: alldates)
         {
             if (x.getText().equals(day)){
@@ -39,17 +40,17 @@ public class DatePickerDemo3 {
                 break;
             }
 
-        }
+        }*/
         //Method 2
-       /* for (int i=1;i<=Integer.parseInt(day);i++)
+       for (int i=1;i<=Integer.parseInt(day);i++)
         {
-            WebElement date= driver.findElement(By.xpath("//a[normalize-space()='"+i+"']"));
+            WebElement date= driver.findElement(By.xpath("//table//tr//td//a[@xpath="+i+"]"));
             if (date.getText().equals(day))
             {
                 date.click();
                 break;
             }
-        }*/
+        }
     }
     public static void main(String[] args) throws InterruptedException {
         WebDriver driver= new ChromeDriver();
