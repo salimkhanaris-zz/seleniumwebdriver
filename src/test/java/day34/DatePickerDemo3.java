@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -46,12 +47,15 @@ public class DatePickerDemo3 {
 
         }*/
         //Method 2
+        Actions act=new Actions(driver);
+        WebElement tb=driver.findElement(By.xpath("//div[@class='datepick-month']//table"));
        for (int i=1;i<=Integer.parseInt(day);i++)
         {
-            WebElement date= driver.findElement(By.xpath("//div[@class='datepick-popup']//div[@class='datepick-month']//table//tr//td//a[@href='javascript:void(0)']"));
+            WebElement date= driver.findElement(By.xpath("//div[@class='datepick-popup']//div[@class='datepick-month']//table//tr//td//a[text()='"+i+"']"));
             ww.until(ExpectedConditions.visibilityOfAllElements(date));
             if (date.getText().equals(day))
             {
+                act.moveToElement(tb).click().build().perform();
                 date.click();
                 break;
             }
@@ -72,8 +76,8 @@ public class DatePickerDemo3 {
 /*        String year= "2027";
         String month= "January";
         String day="31";*/
-        driver.findElement(By.xpath("//input[@id='datepicker2']"))
-                .click();
+        WebElement datebox=driver.findElement(By.xpath("//input[@id='datepicker2']"));
+        datebox.click();
         //User input
         Scanner sc= new Scanner(System.in);
         System.out.println("Enter Year: ");
@@ -83,6 +87,7 @@ public class DatePickerDemo3 {
         System.out.println("Enter date: ");
         String day = sc.next();
         selectFutureDate(driver,month, year,day);
+
         Thread.sleep(3000);
         driver.quit();
 
