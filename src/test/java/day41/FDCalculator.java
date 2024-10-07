@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.Select;
 
 import java.io.IOException;
@@ -11,11 +12,18 @@ import java.time.Duration;
 
 public class FDCalculator {
     public static void main(String[] args) throws IOException, InterruptedException {
+        //ChromeOptions options= new ChromeOptions();
+        //options.addArguments("--headless=yes");
         WebDriver driver= new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get("https://www.moneycontrol.com/fixed-income/calculator/state-bank-of-india/fixed-deposit-calculator-SBI-BSB001.html?classic=true");
-        String filepath= System.getProperty("user.dir")+"\\Excel\\caldata.xlsx";
+        Thread.sleep(5000);
+        //windows Path
+        //String filepath= System.getProperty("user.dir")+"\\Excel\\caldata.xlsx";
+
+        //Mac Path
+        String filepath= System.getProperty("user.dir")+"/Excel/caldata.xlsx";
         int rows=ExcelUtils.getRowCount(filepath,"Sheet1");
         for (int r=1;r<=rows;r++)
         {
@@ -25,7 +33,7 @@ public class FDCalculator {
             String rate= ExcelUtils.getCellData(filepath,"Sheet1",r,1);
             String time1= ExcelUtils.getCellData(filepath,"Sheet1",r,2);
             String time2= ExcelUtils.getCellData(filepath,"Sheet1",r,3);
-            String freq= ExcelUtils.getCellData(filepath,"Sheet1",r,4);
+            String frequency= ExcelUtils.getCellData(filepath,"Sheet1",r,4);
             String mat= ExcelUtils.getCellData(filepath,"Sheet1",r,5);
 
             //Pass above data into application
@@ -39,13 +47,13 @@ public class FDCalculator {
             Select pd1= new Select(pd);
             pd1.selectByVisibleText(time2);
 
-            WebElement fre= driver.findElement(By.xpath("//select[@id='frequency']"));
-            Select fr= new Select(fre);
-            pd1.selectByVisibleText(freq);
+            WebElement freq= driver.findElement(By.xpath("//select[@id='frequency']"));
+            Select f= new Select(freq);
+            f.selectByVisibleText(frequency);
 
             //Click on Calculate
 
-            driver.findElement(By.xpath("//div[@class='cal_div']//a[1]"))
+            driver.findElement(By.xpath("//img[@src='https://images.moneycontrol.com/images/mf_revamp/btn_calcutate.gif']"))
                     .click();
 
             //Validation
