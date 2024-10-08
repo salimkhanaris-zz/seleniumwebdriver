@@ -20,10 +20,10 @@ public class FDCalculator {
         driver.get("https://www.moneycontrol.com/fixed-income/calculator/state-bank-of-india/fixed-deposit-calculator-SBI-BSB001.html?classic=true");
         Thread.sleep(5000);
         //windows Path
-        //String filepath= System.getProperty("user.dir")+"\\Excel\\caldata.xlsx";
+        String filepath= System.getProperty("user.dir")+"\\testdata\\caldata.xlsx";
 
         //Mac Path
-        String filepath= System.getProperty("user.dir")+"/Excel/caldata.xlsx";
+        //String filepath= System.getProperty("user.dir")+"/Excel/caldata.xlsx";
         int rows=ExcelUtils.getRowCount(filepath,"Sheet1");
         for (int r=1;r<=rows;r++)
         {
