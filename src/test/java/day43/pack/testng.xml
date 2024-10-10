@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Learning/LearningSelenium/src/test/java/day43/pack/C1.java">
+        <classes>
+            <class name="day43.pack.C1"/>
+            <class name="day43.pack.C3"/>
+        </classes>
+    </test>
+    <test verbose="2" preserve-order="true" name="C:/Learning/LearningSelenium/src/test/java/day43/pack/C2.java">
+        <classes>
+            <class name="day43.pack.C2">
+            </class>
+        </classes>
+    </test>
+</suite>
