@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite">
-    <test verbose="2" preserve-order="true" name="C:/Learning/LearningSelenium/src/test/java/day45/ParamTest.java">
+<suite name="All Test Suite" parallel="tests">
+    <test verbose="2" preserve-order="true" name="ChromeTest">
         <parameter name="browser" value="chrome"/>
+        <parameter name="url" value="https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"/>
         <classes>
             <class name="day45.ParamTest">
                 <methods>
@@ -13,4 +14,18 @@
             </class>
         </classes>
     </test>
+    <test verbose="2" preserve-order="true" name="SafariTest">
+        <parameter name="browser" value="safari"/>
+        <parameter name="url" value="https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"/>
+        <classes>
+            <class name="day45.ParamTest">
+                <methods>
+                    <include name="testLogo"/>
+                    <include name="testTitle"/>
+                    <include name="testURL"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
 </suite>
