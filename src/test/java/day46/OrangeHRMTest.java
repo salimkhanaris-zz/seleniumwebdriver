@@ -10,7 +10,7 @@ import org.testng.annotations.*;
 
 import java.time.Duration;
 
-@Listeners(day46.MyListener.class)  //to use Listener class without the use of XML
+@Listeners(day46.ExtentReportManager.class)  //to use Listener class without the use of XML
 
 public class OrangeHRMTest {
     WebDriver driver;
