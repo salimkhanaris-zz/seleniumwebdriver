@@ -18,12 +18,12 @@ import org.openqa.selenium.safari.SafariDriver;
 public class FirstTestCase {
 
     public static void main(String[] args) throws InterruptedException {
-        WebDriver driver=new SafariDriver();
-        driver.navigate().to("https://demo.opencart.com");
+        WebDriver driver=new ChromeDriver();
+        driver.navigate().to("https://demoqa.com");
 
         String title=driver.getTitle();
         System.out.println(title);
-        if (title.equals("Your Store")){
+        if (title.equals("demosite")){
             System.out.println("Title Matches");
         }
         else System.out.println("Test Failed");

@@ -10,7 +10,7 @@ import java.util.List;
 public class LocatorsDemo {
     public static void main(String [] args) throws InterruptedException {
         WebDriver driver= new ChromeDriver();
-        driver.get("https://demo.opencart.com");
+        driver.get("https://demo.opencart.com" );
         driver.manage().window().maximize(); //To maximize window
 
         //name as a locator
